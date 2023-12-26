@@ -38,3 +38,12 @@ CREATE TABLE Course (
     teacher_id INT,
     FOREIGN KEY (teacher_id) REFERENCES Teacher(teacher_id)
 );
+
+--to get all users
+SELECT *
+FROM "User";
+
+--to log in
+SELECT *
+FROM "User"
+WHERE email= email_id AND password = user_password;

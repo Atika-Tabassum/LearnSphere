@@ -15,3 +15,4 @@
 9. How to secure API -- xss-clean,express-rate-limit
 10. Environment variable & .gitignore
 11. MVC Architecture
+12. Database connection done

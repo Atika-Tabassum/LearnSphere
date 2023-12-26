@@ -8,8 +8,9 @@ const getUsers=async (req,res,next)=>
 {
     // console.log(req.body.id);
     try{
-       const users=await pool.query("SELECT * FROM \"User\" ");
-       res.status(200).json({message:"users are returned",data:users.rows})
+       const {email,password} =req.body;
+       const users=await pool.query("SELECT * FROM \"User\" WHERE email=$1 AND password=$2 ",[email,password]);
+       res.status(200).json({message:"user is returned",data:users.rows})
 }
 catch(error)
 {

@@ -4,9 +4,11 @@ const createError =require('http-errors');
 const bodyParser =require('body-parser');
 const xssClean=require('xss-clean');
 const rateLimit=require('express-rate-limit');
+const signupRouter = require("./routers/signupRouter");
 const userRouter = require("./routers/userRouter");
+const loginRouter = require("./routers/loginRouter");
 
-const pool=require('../db');
+// const pool=require('../db');
 
 const app =express();
 const rateLimiter = rateLimit({
@@ -20,7 +22,9 @@ app.use(rateLimit());
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true }));
-app.use('/api/user',userRouter);
+app.use('/signup',signupRouter);
+app.use('/users',userRouter);
+app.use('/login',loginRouter);
 
 
 
