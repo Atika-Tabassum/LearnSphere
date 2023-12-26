@@ -1,5 +1,5 @@
 ##LearnSphere
 
-## Database Project
+## Database Project Level 2 Term 1
 
 ## 2105031 & 2105053
