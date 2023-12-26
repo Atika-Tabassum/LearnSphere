@@ -7,6 +7,7 @@ const rateLimit=require('express-rate-limit');
 const signupRouter = require("./routers/signupRouter");
 const userRouter = require("./routers/userRouter");
 const loginRouter = require("./routers/loginRouter");
+const addCourseRouter=require("./routers/addCourseRouter");
 
 // const pool=require('../db');
 
@@ -25,6 +26,7 @@ app.use(bodyParser.urlencoded({extended:true }));
 app.use('/signup',signupRouter);
 app.use('/users',userRouter);
 app.use('/login',loginRouter);
+app.use('/addCourse',addCourseRouter);
 
 
 
