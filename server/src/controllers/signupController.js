@@ -14,7 +14,8 @@ const getUsers=async (req,res,next)=>
         const newUser= await pool.query("INSERT INTO  \"User\" (name,email,password) VALUES($1,$2,$3) RETURNING *",
         [name,email,password]
         );
-        res.json(newUser.rows[0]);
+        
+
 }
 catch(error)
 {

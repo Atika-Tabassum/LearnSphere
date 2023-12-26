@@ -2,7 +2,19 @@ const pool=require('../../db');
 
 const createError=require('http-errors');
 
+<<<<<<< HEAD
 
+=======
+// CREATE TABLE Course (
+//     id SERIAL PRIMARY KEY,
+//     name VARCHAR(255) NOT NULL,
+//     description TEXT,
+//     class VARCHAR(50),
+//     course_fee DECIMAL(10, 2),
+//     teacher_id INT,
+//     FOREIGN KEY (teacher_id) REFERENCES Teacher(teacher_id)
+// );
+>>>>>>> 9d1445c (basic data insert,fetch)
 
 const getUsers=async (req,res,next)=>
 {
@@ -15,6 +27,10 @@ const getUsers=async (req,res,next)=>
         [name,email,password]
         );
         res.json(newUser.rows[0]);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9d1445c (basic data insert,fetch)
 }
 catch(error)
 {

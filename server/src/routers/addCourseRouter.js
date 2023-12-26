@@ -16,4 +16,10 @@ userRouter.post("/",getUsers);
 //     );
 // });
 
+<<<<<<< HEAD
 module.exports =userRouter;
+=======
+module.exports =userRouter;
+
+
+>>>>>>> 9d1445c (basic data insert,fetch)
