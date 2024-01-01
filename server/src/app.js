@@ -1,5 +1,6 @@
 const express =require("express");
 const morgan =require('morgan');
+const cors = require("cors");
 const createError =require('http-errors');
 const bodyParser =require('body-parser');
 const xssClean=require('xss-clean');
@@ -21,6 +22,7 @@ const rateLimiter = rateLimit({
 app.use(xssClean());
 app.use(rateLimit());
 app.use(morgan('dev'));
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true }));
 app.use('/signup',signupRouter);

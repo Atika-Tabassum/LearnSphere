@@ -2,10 +2,12 @@ const express=require('express');
 const userRouter=express.Router();
 
 
-const {getUsers}=require('../controllers/signupController');
+const {getUsers,getProfile}=require('../controllers/signupController');
 
 
 userRouter.post("/",getUsers);
+
+userRouter.get("/:userId/myProfile",getProfile);
 
 // userRouter.get("/profile",(req,res)=>
 // {
