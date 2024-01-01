@@ -21,6 +21,8 @@ const getUsers=async (req,res,next)=>
        const uid=newUser.rows[0].id;
     //    backticks (``) for template literals to allow variable interpolation
        res.redirect(`/signup/${uid}/myprofile`);
+        
+
 }
 catch(error)
 {

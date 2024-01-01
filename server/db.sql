@@ -11,6 +11,16 @@ CREATE TABLE "User" (
     user_type VARCHAR NOT NULL
 );
 
+-- User table with usertype column
+-- CREATE TABLE "User" (
+--     id SERIAL PRIMARY KEY,
+--     name VARCHAR(255) NOT NULL,
+--     email VARCHAR(255) UNIQUE NOT NULL,
+--     password VARCHAR(255) NOT NULL,
+--     usertype CHAR(1) CHECK (usertype IN ('Student', 'Teacher')) NOT NULL
+-- );
+
+
 -- Student table
 CREATE TABLE Student (
     student_id SERIAL PRIMARY KEY,

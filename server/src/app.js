@@ -8,11 +8,15 @@ const rateLimit=require('express-rate-limit');
 const signupRouter = require("./routers/signupRouter");
 const userRouter = require("./routers/userRouter");
 const loginRouter = require("./routers/loginRouter");
-const addCourseRouter=require("./routers/addCourseRouter");
 
-// const pool=require('../db');
+
+
+//const pool=require('../db');
 
 const app =express();
+
+
+
 const rateLimiter = rateLimit({
     windowMs: 1*60*1000,  //1 min
     max: 5,
@@ -25,10 +29,11 @@ app.use(morgan('dev'));
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true }));
+app.use(express.json());
 app.use('/signup',signupRouter);
 app.use('/users',userRouter);
 app.use('/login',loginRouter);
-app.use('/addCourse',addCourseRouter);
+
 
 
 
@@ -66,3 +71,4 @@ app.use((err,req,res,next)=>
 );
 
 module.exports=app;
+
