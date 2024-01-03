@@ -29,12 +29,10 @@ CREATE TABLE Student (
 );
 
 -- Teacher table
--- The TEXT data type is used for storing unlimited-length character strings.
--- It can store strings of any length, and PostgreSQL will not enforce a maximum length. 
--- This data type is suitable for storing large amounts of text data.
+
 CREATE TABLE Teacher (
-    teacher_id INT PRIMARY KEY,
-    educational_qualifications TEXT,
+    teacher_id SERIAL PRIMARY KEY,
+    educational_qualifications VARCHAR(50),
     user_id INT UNIQUE REFERENCES "User" (id)
 );
 
@@ -43,7 +41,7 @@ CREATE TABLE Teacher (
 CREATE TABLE Course (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    description TEXT,
+    description VARCHAR(255),
     class VARCHAR(50),
     course_fee DECIMAL(10, 2),
     teacher_id INT,

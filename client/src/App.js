@@ -5,17 +5,14 @@ import "./App.css";
 import Homepage from "./components/homepage";
 import UserProfile from "./components/userprofile";
 
-
 function App() {
   return (
     <Fragment>
-      <div className ="container">
-      <Homepage />
+      <div className="container">
+        <Homepage />
       </div>
-      
     </Fragment>
   );
 }
 
 export default App;
-
