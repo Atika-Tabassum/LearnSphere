@@ -1,39 +1,29 @@
-// import React, { Fragment } from "react";
-// import "./App.css";
-
-// // Import the Homepage component from its file
-// import Homepage from "./components/homepage";
-// import UserProfile from "./components/userprofile";
-
-// function App() {
-//   return (
-//     <Fragment>
-//       <div className="container">
-//         <Homepage />
-//       </div>
-//     </Fragment>
-//   );
-// }
-
-// export default App;
-
-
 import React, { Fragment } from "react";
 import "./App.css";
 
 // Import the Homepage component from its file
 import Homepage from "./components/homepage";
 import UserProfile from "./components/userprofile";
-import Exam from './components/Quiz';
+import Quiz from "./components/Quiz";
+import Courses from "./components/Courses-section/Courses";
+import AddCourses from "./components/addcourses";
+import AllCourses from "./components/allcourses";
 
 function App() {
   return (
     <Fragment>
       <div className="container">
-        <Homepage />
+        <AllCourses />
       </div>
     </Fragment>
   );
 }
 
 export default App;
+
+
+
+
+
+
+

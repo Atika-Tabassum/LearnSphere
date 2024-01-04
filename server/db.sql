@@ -22,6 +22,12 @@ CREATE TABLE "User" (
 
 
 -- Student table
+-- CREATE TABLE Student (
+--     student_id SERIAL PRIMARY KEY,
+--     class VARCHAR(50),
+--     user_id INT REFERENCES "User" (id)
+-- );
+
 CREATE TABLE Student (
     student_id SERIAL PRIMARY KEY,
     class VARCHAR(50),
@@ -29,6 +35,13 @@ CREATE TABLE Student (
 );
 
 -- Teacher table
+
+-- CREATE TABLE Teacher (
+--     teacher_id SERIAL PRIMARY KEY,
+--     educational_qualifications VARCHAR(50),
+--     user_id INT UNIQUE REFERENCES "User" (id)
+-- );
+
 
 CREATE TABLE Teacher (
     teacher_id SERIAL PRIMARY KEY,
@@ -38,15 +51,72 @@ CREATE TABLE Teacher (
 
 
 --Course Table
+-- CREATE TABLE Course (
+--     id SERIAL PRIMARY KEY,
+--     name VARCHAR(255) NOT NULL,
+--     description VARCHAR(255),
+--     class VARCHAR(50),
+--     course_fee DECIMAL(10, 2),
+--     teacher_id INT,
+--     FOREIGN KEY (teacher_id) REFERENCES Teacher(teacher_id)
+-- );
+
 CREATE TABLE Course (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description VARCHAR(255),
-    class VARCHAR(50),
+    course_class VARCHAR(50),
     course_fee DECIMAL(10, 2),
     teacher_id INT,
     FOREIGN KEY (teacher_id) REFERENCES Teacher(teacher_id)
 );
+
+
+-- Content table
+CREATE TABLE Content (
+    id INT PRIMARY KEY,
+    course_id INT,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    duration INT,
+    content_type VARCHAR(50),
+    FOREIGN KEY (course_id) REFERENCES Course(id)
+);
+
+-- VideoContent table
+CREATE TABLE VideoContent (
+    id INT PRIMARY KEY,
+    content_id INT,
+    link VARCHAR(255) NOT NULL,
+    FOREIGN KEY (content_id) REFERENCES Content(id)
+);
+
+-- Exam table
+CREATE TABLE Exam (
+    id INT PRIMARY KEY,
+    content_id INT,
+    total_marks INT,
+    obtained_marks INT,
+    user_id INT,
+    FOREIGN KEY (content_id) REFERENCES Content(id),
+    FOREIGN KEY (user_id) REFERENCES "User"(id)
+);
+
+-- Question table
+CREATE TABLE Question (
+    id INT PRIMARY KEY,
+    serial_no INT,
+    description TEXT,
+    option1 VARCHAR(255),
+    option2 VARCHAR(255),
+    option3 VARCHAR(255),
+    option4 VARCHAR(255),
+    correct_answer INT,
+    obtained_marks INT,
+    exam_id INT,
+    FOREIGN KEY (exam_id) REFERENCES Exam(id)
+);
+
 
 --to get all users
 SELECT *

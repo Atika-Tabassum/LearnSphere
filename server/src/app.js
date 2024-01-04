@@ -9,6 +9,7 @@ const signupRouter = require("./routers/signupRouter");
 const userRouter = require("./routers/userRouter");
 const loginRouter = require("./routers/loginRouter");
 const addcourseRouter = require("./routers/addcourseRouter");
+const allcourseRouter = require("./routers/allcourseRouter");
 
 //const pool=require('../db');
 
@@ -30,7 +31,8 @@ app.use(express.json());
 app.use("/signup", signupRouter);
 app.use("/users", userRouter);
 app.use("/login", loginRouter);
-app.use('/addcourse',addcourseRouter);
+app.use("/addcourse",addcourseRouter);
+app.use('/allcourse',allcourseRouter);
 
 app.get("/test", rateLimiter, (req, res) => {
   res.status(200).send({

@@ -30,7 +30,7 @@ const getUsers = async (req, res, next) => {
     } else {
       const educational_qualifications = req.body.educational_qualifications;
       await pool.query(
-        "INSERT INTO Teacher (educational_qualifications, user_id) VALUES ($1, $2)",
+        "INSERT INTO teacher (educational_qualifications, user_id) VALUES ($1, $2)",
         [educational_qualifications, uid]
       );
     }
