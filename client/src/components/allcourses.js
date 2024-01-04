@@ -67,6 +67,7 @@ const AllCourses = () => {
 
     return (
         <section>
+            <h1>ALL COURSES</h1>
             {loading && <div>Loading...</div>}
             {Array.isArray(users) ? (
                 users.map((user) => (
