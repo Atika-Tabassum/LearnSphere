@@ -7,16 +7,15 @@ import "./App.css";
 // Import the Homepage component from its file
 import LearnSphere from "./pages/LearnSphere";
 import Signup from "./pages/signup/signup";
-import UserProfile from "./pages/userprofile";
-import Login from "./pages/login";
+import UserProfile from "./pages/login/userprofile";
+import Login from "./pages/login/login";
 import TeacherSignUp from "./pages/signup/teacherSignup";
 import StudentSignUp from "./pages/signup/studentSignUp";
 import Exam from "./components/Quiz";
 import Homepage from "./components/homepage";
-import UserProfile from "./components/userprofile";
 import Quiz from "./components/Quiz";
-import Courses from "./components/Courses-section/Courses";
-import AddCourses from "./components/addcourses";
+import Courses from "./pages/Courses-section/Courses";
+import AddCourse from "./components/addcourses";
 import AllCourses from "./components/allcourses";
 
 function App() {
@@ -30,8 +29,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup_teacher" element={<TeacherSignUp />} />
           <Route path="/signup_student" element={<StudentSignUp />} />
+          <Route path="/allcourses" element={<AllCourses/>} />
+          <Route path="/addcourse" element={<AddCourse/>} />
         </Routes>
-        <AllCourses />
       </div>
     </Fragment>
   );

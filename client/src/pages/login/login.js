@@ -1,26 +1,28 @@
 import React, { Fragment, useState } from "react";
-import classes from "./signup/SignUpForm.module.css";
-import { Link } from "react-router-dom";
+import classes from "../signup/SignUpForm.module.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
+  const [loginMessage, setLoginMessage] = useState("");
+
   const onLogInClick = async () => {
-      try {
-        const body = {email, password};
-          const response = await fetch("http://localhost:3001/login", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(body),
-          });
-          const data = await response.json();
-          console.log(data);
-      } catch (error) {
-        console.error(error.message);
+    try {
+      const body = { email, password };
+      const response = await fetch("http://localhost:3001/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      const data = await response.json();
+      if (response.ok) {
+       
       }
-    };
-  
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
   return (
     <Fragment>
       <h2 className="text-center">Login</h2>
@@ -46,8 +48,10 @@ const Login = () => {
           value={password}
         ></input>
         <br></br>
-      <br></br>
-      <button onClick={onLogInClick}>Log In</button>
+        <br></br>
+        <button type="button" onClick={onLogInClick}>
+          Log In
+        </button>
       </form>
     </Fragment>
   );

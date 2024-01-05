@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
 
-import "./courses.css";
+import "./courses.module.css";
 import CourseCard from "./CourseCard";
 
 const coursesData = [
