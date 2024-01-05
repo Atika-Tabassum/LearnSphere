@@ -5,7 +5,7 @@ const userRouter=express.Router();
 const {getUsers}=require('../controllers/addcourseController');
 
 
-userRouter.get("/",getUsers);
+userRouter.post("/",getUsers);
 
 // userRouter.get("/profile",(req,res)=>
 // {

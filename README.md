@@ -1,4 +1,4 @@
-##LearnSphere
+##LearnSphere project
 
 ## Database Project Level 2 Term 1
 
