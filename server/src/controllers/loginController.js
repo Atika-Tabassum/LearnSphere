@@ -10,8 +10,13 @@ const getUsers=async (req,res,next)=>
     try{
        const {email,password} =req.body;
        const users=await pool.query("SELECT * FROM \"User\" WHERE email=$1 AND password=$2 ",[email,password]);
-       console.log(users.rows[0]);
-       res.status(200).json({message:"user is returned",data:users.rows})
+       if (users.rows.length > 0) {
+        const user = users.rows[0];
+        console.log(users.rows[0]);
+        res.status(200).json({ message: "User logged in successfully", userId: user.id});
+      } else {
+        res.status(401).json({ message: "Invalid email or password" });
+      }
 }
 catch(error)
 {

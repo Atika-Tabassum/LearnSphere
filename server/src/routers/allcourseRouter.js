@@ -1,11 +1,11 @@
-const express=require('express');
-const userRouter=express.Router();
+const express = require('express');
+const courseRouter=express.Router();
 
 
-const {getUsers}=require('../controllers/allcourseController');
+const {getCourses}=require('../controllers/allcourseController');
 
 
-userRouter.get("/",getUsers);
+courseRouter.get("/",getCourses);
 
 // userRouter.get("/profile",(req,res)=>
 // {
@@ -16,4 +16,4 @@ userRouter.get("/",getUsers);
 //     );
 // });
 
-module.exports =userRouter;
+module.exports =courseRouter;

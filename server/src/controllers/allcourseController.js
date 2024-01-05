@@ -4,12 +4,12 @@ const createError=require('http-errors');
 
 
 
-const getUsers=async (req,res,next)=>
+const getCourses=async (req,res,next)=>
 {
     // console.log(req.body.id);
     try{
-       const users=await pool.query("SELECT * FROM \"course\" ");
-       res.status(200).json({message:"users are returned",data:users.rows})
+       const courses=await pool.query("SELECT * FROM Course ");
+       res.status(200).json({message:"users are returned",data:courses.rows})
        //res.status(200).json({message: "users are returned"});
     }
 catch(error)
@@ -20,4 +20,4 @@ catch(error)
 
 };
 
-module.exports={getUsers};
+module.exports={getCourses};
