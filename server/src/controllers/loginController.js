@@ -10,6 +10,7 @@ const getUsers=async (req,res,next)=>
     try{
        const {email,password} =req.body;
        const users=await pool.query("SELECT * FROM \"User\" WHERE email=$1 AND password=$2 ",[email,password]);
+       console.log(users.rows[0]);
        res.status(200).json({message:"user is returned",data:users.rows})
 }
 catch(error)

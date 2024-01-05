@@ -1,36 +1,30 @@
-// import React, { Fragment } from "react";
-// import "./App.css";
-
-// // Import the Homepage component from its file
-// import Homepage from "./components/homepage";
-// import UserProfile from "./components/userprofile";
-
-// function App() {
-//   return (
-//     <Fragment>
-//       <div className="container">
-//         <Homepage />
-//       </div>
-//     </Fragment>
-//   );
-// }
-
-// export default App;
-
-
 import React, { Fragment } from "react";
+
+//installed react router dom
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 
 // Import the Homepage component from its file
-import Homepage from "./components/homepage";
-import UserProfile from "./components/userprofile";
-import Exam from './components/Quiz';
+import LearnSphere from "./pages/LearnSphere";
+import Signup from "./pages/signup/signup";
+import UserProfile from "./pages/userprofile";
+import Login from "./pages/login";
+import TeacherSignUp from "./pages/signup/teacherSignup";
+import StudentSignUp from "./pages/signup/studentSignUp";
+import Exam from "./components/Quiz";
 
 function App() {
   return (
     <Fragment>
       <div className="container">
-        <Homepage />
+        <Routes>
+          <Route path="/" element={<LearnSphere />} />
+          <Route path="/myprofile" element={<UserProfile />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup_teacher" element={<TeacherSignUp />} />
+          <Route path="/signup_student" element={<StudentSignUp />} />
+        </Routes>
       </div>
     </Fragment>
   );
