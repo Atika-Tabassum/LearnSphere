@@ -10,6 +10,8 @@ const userRouter = require("./routers/userRouter");
 const loginRouter = require("./routers/loginRouter");
 const addcourseRouter = require("./routers/addcourseRouter");
 const allcourseRouter = require("./routers/allcourseRouter");
+const myprofileRouter = require("./routers/myprofileRouter");
+const taughtCourseRouter=require("./routers/taughtCoursesRouter");
 
 //const pool=require('../db');
 
@@ -31,8 +33,10 @@ app.use(express.json());
 app.use("/signup", signupRouter);
 app.use("/users", userRouter);
 app.use("/login", loginRouter);
-app.use("/addcourse",addcourseRouter);
-app.use('/allcourse',allcourseRouter);
+app.use("/addcourse", addcourseRouter);
+app.use("/allcourse", allcourseRouter);
+app.use("/view", myprofileRouter);
+app.use("/view_courses",taughtCourseRouter);
 
 app.get("/test", rateLimiter, (req, res) => {
   res.status(200).send({

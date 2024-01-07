@@ -36,22 +36,12 @@ const getUsers = async (req, res, next) => {
     }
 
     //    backticks (``) for template literals to allow variable interpolation
-    res.redirect(`/signup/${uid}/myprofile`);
+    // res.redirect(`/signup/${uid}/myprofile`);
   } catch (error) {
     console.log(error.message);
     next(error);
   }
 };
 
-const getProfile = async (req, res, next) => {
-  try {
-    const id = req.params.userId;
-    const users = await pool.query('SELECT * FROM "User" WHERE id=$1 ', [id]);
-    res.status(200).json({ message: "user is returned", data: users.rows });
-  } catch (error) {
-    console.log(error.message);
-    next(error);
-  }
-};
 
-module.exports = { getUsers, getProfile };
+module.exports = { getUsers};

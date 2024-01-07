@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import "./homepage.css";
+import "./addCourse.module.css";
 
 const AddCourses = () => {
   const [name, setName] = useState("");
