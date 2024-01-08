@@ -1,0 +1,35 @@
+-- Inserting sample data into the User table
+INSERT INTO "User" (name, email, password, user_type)
+VALUES
+    ('John Doe', 'john@example.com', 'password123', 'Teacher'),
+    ('Jane Smith', 'jane@example.com', 'password456', 'Student');
+INSERT INTO Student (class, user_id)
+VALUES
+    ('Grade 10', 2); -- Assuming the second user in the "User" table is a student
+
+-- Inserting sample data into the Teacher table
+INSERT INTO Teacher (educational_qualifications, user_id)
+VALUES
+    ('Ph.D. in Computer Science', 1); -- Assuming the first user in the "User" table is a teacher
+
+    -- Inserting sample data into the Course table with the same teacher ID for all courses (assuming teacher ID 1)
+INSERT INTO Course (name, description, course_class, course_fee, teacher_id)
+VALUES
+    ('Computer Science 101', 'Introduction to Computer Science', 'CS101', 200.00, 1),
+    ('Data Structures', 'Advanced data structures and algorithms', 'CS201', 250.00, 1),
+    ('Mathematics for Beginners', 'Basic mathematics concepts for beginners', 'MATH101', 150.00, 1);
+
+
+CREATE TABLE Course (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description VARCHAR(255),
+    --course_class VARCHAR(50),
+    course_fee DECIMAL(10, 2),
+    rating DECIMAL(10, 2),
+    number_of_topic INT,
+    duration INT,
+    image VARCHAR(255),
+    teacher_id INT,
+    FOREIGN KEY (teacher_id) REFERENCES Teacher(teacher_id)
+);
